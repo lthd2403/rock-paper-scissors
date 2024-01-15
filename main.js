@@ -2,9 +2,10 @@ document.addEventListener("DOMContentLoaded", function() {
     const playerText = document.querySelector("#playerText");
     const computerText = document.querySelector("#computerText");
     const resultText = document.querySelector("#resultText");
-    const choices = document.querySelectorAll(".buttonclass");
     const playerWinText = document.querySelector("#playerWin");
     const computerWinText = document.querySelector("#computerWin");
+    const choices = document.querySelectorAll(".buttonclass");
+    
 
     let player;
     let computer;
@@ -19,6 +20,14 @@ document.addEventListener("DOMContentLoaded", function() {
         resultText.textContent = checkWinner();
         playerWinText.textContent = `Player wins: ${playerWins}`;
         computerWinText.textContent = `Computer wins: ${computerWins}`;
+        if (computerWins === 5){
+            alert("You lose! Try again!")
+            window.location.reload();
+        }
+        else if (playerWins === 5){
+            alert("You win! Good job!")
+            window.location.reload();
+        }
     }));
 
     function computerChoice() {
@@ -70,4 +79,4 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         }
     }
-});
+})
